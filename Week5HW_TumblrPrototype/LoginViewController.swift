@@ -13,8 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var emailField: UITextField!
     
-    var isPresenting: Bool!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +30,6 @@ class LoginViewController: UIViewController {
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
         dismissViewControllerAnimated(true, completion: nil)
-    
     }
     
     /*

@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    var transition: CustomComposeTransition!
+    var transition: LoginSegue!
     var isPresenting: Bool!
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
         
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         
-        transition = CustomComposeTransition()
+        transition = LoginSegue()
         transition.duration = 0.4
         
         destinationVC.transitioningDelegate = transition

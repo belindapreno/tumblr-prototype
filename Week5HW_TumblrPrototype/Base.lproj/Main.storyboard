@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
@@ -128,12 +127,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTapLogin:" destination="jCD-1J-aes" eventType="touchUpInside" id="Zaq-ZQ-AZd"/>
-                                    <segue destination="4Vy-jK-Mg7" kind="modal" identifier="loginSegue" id="02c-7L-RGk"/>
+                                    <action selector="onTapLogin:" destination="jCD-1J-aes" eventType="touchUpInside" id="uja-HA-qiP"/>
                                 </connections>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <segue destination="4Vy-jK-Mg7" kind="modal" identifier="loginSegue" id="1cO-v5-Rt3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npq-nU-Kxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
