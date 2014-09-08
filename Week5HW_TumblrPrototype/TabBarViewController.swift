@@ -20,6 +20,13 @@ class TabBarViewController: UIViewController {
     var trendingViewController: UIViewController!
     
     @IBOutlet weak var homebutton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var trendButton: UIButton!
+    
+    
+    @IBOutlet weak var explorePopUp: UIImageView!
+    
     var currentTab: UIButton!
     
     override func viewDidLoad() {
@@ -38,11 +45,20 @@ class TabBarViewController: UIViewController {
         trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
         
         
+        UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: {
+            self.explorePopUp.transform = CGAffineTransformMakeTranslation(0, -5)
+            }, completion: nil)
+
+        
+        
         homeViewController.view.frame = contentView.frame
         
         contentView.addSubview(homeViewController.view)
         currentTab = homebutton
         homebutton.selected = true
+        
+        self.explorePopUp.hidden = true
+
         
         // Do any additional setup after loading the view.
     }
@@ -53,29 +69,46 @@ class TabBarViewController: UIViewController {
     }
     
     
-    @IBAction func onTabButton(sender: AnyObject) {
+    @IBAction func onTabButton(tabbedButton: UIButton) {
         
-        var button = sender as UIButton
+        var content = ViewController()
+        var button = tabbedButton as UIButton
+        
+        homebutton.selected = false
+        searchButton.selected = false
+        accountButton.selected = false
+        trendButton.selected = false
+        
+        button.selected = true
+        
         
         if button.tag == 0 {
             
             homeViewController.view.frame = contentView.frame
             contentView.addSubview(homeViewController.view)
+
+            
+            
             
         } else if button.tag == 1 {
             
             searchViewController.view.frame = contentView.frame
             contentView.addSubview(searchViewController.view)
             
+            self.explorePopUp.hidden = false
+            
+            
         } else if button.tag == 2 {
             
             composeViewController.view.frame = contentView.frame
             contentView.addSubview(composeViewController.view)
             
+            
         } else if button.tag == 3 {
             
             accountViewController.view.frame = contentView.frame
             contentView.addSubview(accountViewController.view)
+            
             
         }  else if button.tag == 4 {
             
@@ -84,7 +117,14 @@ class TabBarViewController: UIViewController {
             
         }
         
-        
+        if button.tag == 1 {
+            self.explorePopUp.hidden = false
+        } else {
+            self.explorePopUp.hidden = true
+
+        }
+
+
         
     }
     

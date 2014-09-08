@@ -20,12 +20,13 @@
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RsS-bT-8V2" userLabel="home button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="RsS-bT-8V2" userLabel="home button">
                                         <rect key="frame" x="16" y="8" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="home_icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="home_selected_icon"/>
                                         <connections>
                                             <action selector="onTabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0AY-QA-A7a"/>
                                         </connections>
@@ -36,6 +37,7 @@
                                         <state key="normal" image="search_icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="search_selected_icon"/>
                                         <connections>
                                             <action selector="onTabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FNu-9h-b7N"/>
                                         </connections>
@@ -46,6 +48,7 @@
                                         <state key="normal" image="compose_button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="compose_"/>
                                         <connections>
                                             <action selector="onTabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zik-qf-omc"/>
                                         </connections>
@@ -56,6 +59,7 @@
                                         <state key="normal" image="trending_icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="trending_selected_icon"/>
                                         <connections>
                                             <action selector="onTabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UIS-gT-qCf"/>
                                         </connections>
@@ -66,6 +70,7 @@
                                         <state key="normal" image="account_icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="account_selected_icon"/>
                                         <connections>
                                             <action selector="onTabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EGg-wq-Nk1"/>
                                         </connections>
@@ -73,12 +78,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.20270734609999999" green="0.26007299659999999" blue="0.33639219580000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="explore_popup" id="ZcM-g6-ImX">
+                                <rect key="frame" x="-8" y="450" width="185" height="77"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="accountButton" destination="hZ3-O1-mSI" id="zcw-W6-eR0"/>
                         <outlet property="contentView" destination="vVh-fK-Pqa" id="mlL-jd-g5O"/>
+                        <outlet property="explorePopUp" destination="ZcM-g6-ImX" id="IUw-Aj-kSb"/>
                         <outlet property="homebutton" destination="RsS-bT-8V2" id="XT3-Az-Mar"/>
+                        <outlet property="searchButton" destination="Dnh-qo-kmE" id="j64-Ga-4ur"/>
+                        <outlet property="trendButton" destination="zQg-Bg-HLT" id="Tpz-1z-8hL"/>
                         <segue destination="izb-Fu-jM7" kind="modal" identifier="composeSegue" id="y1c-El-sKA"/>
                     </connections>
                 </viewController>
@@ -232,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Tvz-Cy-6cE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="10" width="320" height="517"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trending_feed" id="Uxq-Qu-QWi">
@@ -242,6 +255,7 @@
                                 </subviews>
                             </scrollView>
                         </subviews>
+                        <color key="backgroundColor" red="0.20224591015448026" green="0.28389855498178285" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="Tvz-Cy-6cE" id="bAt-0S-baT"/>
@@ -256,11 +270,15 @@
     <resources>
         <image name="account" width="320" height="524"/>
         <image name="account_icon" width="35" height="35"/>
+        <image name="account_selected_icon" width="35" height="35"/>
         <image name="chat_icon" width="75" height="96"/>
+        <image name="compose_" width="35" height="35"/>
         <image name="compose_button" width="50" height="35"/>
+        <image name="explore_popup" width="185" height="77"/>
         <image name="home" width="320" height="524"/>
         <image name="home_icon" width="35" height="35"/>
         <image name="home_overlay" width="320" height="100"/>
+        <image name="home_selected_icon" width="35" height="35"/>
         <image name="home_spinner" width="146" height="146"/>
         <image name="link_icon" width="75" height="95"/>
         <image name="nevermind" width="320" height="53"/>
@@ -268,9 +286,11 @@
         <image name="quote_icon" width="75" height="96"/>
         <image name="search_feed" width="320" height="524"/>
         <image name="search_icon" width="35" height="35"/>
+        <image name="search_selected_icon" width="35" height="35"/>
         <image name="text_icon" width="75" height="95"/>
         <image name="trending_feed" width="320" height="1217"/>
         <image name="trending_icon" width="35" height="35"/>
+        <image name="trending_selected_icon" width="35" height="35"/>
         <image name="video_icon" width="75" height="95"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
