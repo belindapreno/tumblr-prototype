@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6ADE057019BD7FA800E8C056 /* CustomComposeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADE056F19BD7FA800E8C056 /* CustomComposeTransition.swift */; };
 		6AF01A6C19BD562200F49D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF01A6B19BD562200F49D06 /* AppDelegate.swift */; };
 		6AF01A6E19BD562200F49D06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF01A6D19BD562200F49D06 /* ViewController.swift */; };
 		6AF01A7119BD562200F49D06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF01A6F19BD562200F49D06 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6ADE056F19BD7FA800E8C056 /* CustomComposeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComposeTransition.swift; sourceTree = "<group>"; };
 		6AF01A6619BD562200F49D06 /* Week5HW_TumblrPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week5HW_TumblrPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF01A6A19BD562200F49D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AF01A6B19BD562200F49D06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6ADE057119BD825900E8C056 /* Custom Segues */ = {
+			isa = PBXGroup;
+			children = (
+				6ADE056F19BD7FA800E8C056 /* CustomComposeTransition.swift */,
+			);
+			name = "Custom Segues";
+			sourceTree = "<group>";
+		};
 		6AF01A5D19BD562200F49D06 = {
 			isa = PBXGroup;
 			children = (
@@ -88,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				6AF01A6B19BD562200F49D06 /* AppDelegate.swift */,
+				6ADE057119BD825900E8C056 /* Custom Segues */,
 				6AF01A8A19BD567900F49D06 /* View Controllers */,
 				6AF01A6F19BD562200F49D06 /* Main.storyboard */,
-				6AF01A9319BD572D00F49D06 /* HomeViewController.swift */,
 				6AF01A7219BD562200F49D06 /* Images.xcassets */,
 				6AF01A6919BD562200F49D06 /* Supporting Files */,
 			);
@@ -125,6 +135,7 @@
 		6AF01A8A19BD567900F49D06 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6AF01A9319BD572D00F49D06 /* HomeViewController.swift */,
 				6AF01A9119BD56DB00F49D06 /* SearchViewController.swift */,
 				6AF01A8F19BD56BE00F49D06 /* TrendingViewController.swift */,
 				6AF01A8D19BD56A900F49D06 /* AccountViewController.swift */,
@@ -239,6 +250,7 @@
 				6AF01A8E19BD56A900F49D06 /* AccountViewController.swift in Sources */,
 				6AF01A9419BD572D00F49D06 /* HomeViewController.swift in Sources */,
 				6AF01A8919BD567200F49D06 /* TabBarViewController.swift in Sources */,
+				6ADE057019BD7FA800E8C056 /* CustomComposeTransition.swift in Sources */,
 				6AF01A6C19BD562200F49D06 /* AppDelegate.swift in Sources */,
 				6AF01A8C19BD569400F49D06 /* ComposeViewController.swift in Sources */,
 				6AF01A9019BD56BE00F49D06 /* TrendingViewController.swift in Sources */,

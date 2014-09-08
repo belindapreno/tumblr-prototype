@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class TabBarViewController: UIViewController  {
+    
+    var transition: CustomComposeTransition!
+
     
     var isPresenting: Bool!
 
@@ -131,44 +134,55 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        
         var destinationVC = segue.destinationViewController as UIViewController
         
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
-        destinationVC.transitioningDelegate = self
-    }
-    
-    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning!{
-        isPresenting = false
-        return self
-    }
-    
-    func transitionDuration(transitionContext:
-        UIViewControllerContextTransitioning!) -> NSTimeInterval {
-            return 2
-    }
-
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning!) {
-        println("animating transition")
-        var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
         
-        containerView.addSubview(toViewController.view)
-        toViewController.view.alpha = 0
+        transition = CustomComposeTransition()
+        transition.duration = 0.4
         
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
-            toViewController.view.alpha = 1
-            }) { (finished: Bool) -> Void in
-                transitionContext.completeTransition(true)
-        }  
+        destinationVC.transitioningDelegate = transition
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+//        
+//        var destinationVC = segue.destinationViewController as UIViewController
+//        
+//        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+//        destinationVC.transitioningDelegate = self
+//    }
+//    
+//    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+//        isPresenting = true
+//        return self
+//    }
+//    
+//    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning!{
+//        isPresenting = false
+//        return self
+//    }
+//    
+//    func transitionDuration(transitionContext: UIViewControllerContextTransitioning!) -> NSTimeInterval {
+//        return 0.4
+//    }
+//    
+//    func animateTransition(transitionContext: UIViewControllerContextTransitioning!) {
+//        println("animating in")
+//        var containerView = transitionContext.containerView()
+//        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+//        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+//        
+//        containerView.addSubview(toViewController.view)
+//        toViewController.view.alpha = 0
+//        
+//        UIView.animateWithDuration(0.4, animations: { () -> Void in
+//            toViewController.view.alpha = 1
+//            }) { (finished: Bool) -> Void in
+//                transitionContext.completeTransition(true)
+//        }  
+//    }
     
 
     
