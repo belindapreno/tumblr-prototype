@@ -127,6 +127,10 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapLogin:" destination="jCD-1J-aes" eventType="touchUpInside" id="Zaq-ZQ-AZd"/>
+                                    <segue destination="4Vy-jK-Mg7" kind="modal" identifier="loginSegue" id="02c-7L-RGk"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
@@ -281,6 +285,47 @@
             </objects>
             <point key="canvasLocation" x="1010" y="1107"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="LnK-NZ-qA2">
+            <objects>
+                <viewController id="4Vy-jK-Mg7" customClass="LoginViewController" customModule="Week5HW_TumblrPrototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uVH-ai-xQc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_form" id="JzG-D3-UAu">
+                                <rect key="frame" x="10" y="165" width="300" height="132"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="PYD-gR-Ejj">
+                                <rect key="frame" x="25" y="173" width="283" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.31764705879999999" green="0.72549019609999998" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EGv-Zw-Tq7">
+                                <rect key="frame" x="10" y="249" width="150" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTap:" destination="4Vy-jK-Mg7" eventType="touchUpInside" id="bnW-Q2-iAE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1529411765" green="0.25490196079999999" blue="0.41960784309999999" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="EGv-Zw-Tq7" id="plu-wX-yU4"/>
+                        <outlet property="emailField" destination="PYD-gR-Ejj" id="y02-V4-gHb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sqb-OA-2XZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-698" y="1793"/>
+        </scene>
     </scenes>
     <resources>
         <image name="account" width="320" height="524"/>
@@ -295,6 +340,7 @@
         <image name="home_selected_icon" width="35" height="35"/>
         <image name="home_spinner" width="146" height="146"/>
         <image name="link_icon" width="75" height="95"/>
+        <image name="login_form" width="300" height="132"/>
         <image name="nevermind" width="320" height="53"/>
         <image name="photo_icon" width="75" height="95"/>
         <image name="quote_icon" width="75" height="96"/>
@@ -315,4 +361,5 @@
             <size key="landscapeSize" width="568" height="320"/>
         </simulatedScreenMetrics>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.31764705879999999" green="0.72549019609999998" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
