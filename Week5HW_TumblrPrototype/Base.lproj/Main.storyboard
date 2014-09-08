@@ -48,7 +48,7 @@
                                         <state key="normal" image="compose_button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="compose_"/>
+                                        <state key="selected" image="compose_button"/>
                                         <connections>
                                             <action selector="onTabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zik-qf-omc"/>
                                         </connections>
@@ -87,12 +87,13 @@
                     </view>
                     <connections>
                         <outlet property="accountButton" destination="hZ3-O1-mSI" id="zcw-W6-eR0"/>
+                        <outlet property="composeButton" destination="dY6-uj-Bva" id="AxZ-gr-sex"/>
                         <outlet property="contentView" destination="vVh-fK-Pqa" id="mlL-jd-g5O"/>
                         <outlet property="explorePopUp" destination="ZcM-g6-ImX" id="IUw-Aj-kSb"/>
                         <outlet property="homebutton" destination="RsS-bT-8V2" id="XT3-Az-Mar"/>
                         <outlet property="searchButton" destination="Dnh-qo-kmE" id="j64-Ga-4ur"/>
                         <outlet property="trendButton" destination="zQg-Bg-HLT" id="Tpz-1z-8hL"/>
-                        <segue destination="izb-Fu-jM7" kind="modal" identifier="composeSegue" id="y1c-El-sKA"/>
+                        <segue destination="izb-Fu-jM7" kind="modal" identifier="composeSegue" id="202-if-dT4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -208,10 +209,16 @@
                                 <state key="normal" image="nevermind">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onDismissButton:" destination="izb-Fu-jM7" eventType="touchUpInside" id="TfL-5D-i9c"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20270734609999999" green="0.26007299659999999" blue="0.33639219580000002" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="ZYl-FV-osV" id="aI9-v5-fVC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxH-rr-Glt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,7 +279,6 @@
         <image name="account_icon" width="35" height="35"/>
         <image name="account_selected_icon" width="35" height="35"/>
         <image name="chat_icon" width="75" height="96"/>
-        <image name="compose_" width="35" height="35"/>
         <image name="compose_button" width="50" height="35"/>
         <image name="explore_popup" width="185" height="77"/>
         <image name="home" width="320" height="524"/>

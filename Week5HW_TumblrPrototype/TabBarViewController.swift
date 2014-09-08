@@ -8,9 +8,10 @@
 
 import UIKit
 
-class TabBarViewController: UIViewController {
+class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
-    
+    var isPresenting: Bool!
+
     @IBOutlet weak var contentView: UIView!
     
     var homeViewController: UIViewController!
@@ -23,11 +24,13 @@ class TabBarViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var trendButton: UIButton!
+    @IBOutlet weak var composeButton: UIButton!
     
     
     @IBOutlet weak var explorePopUp: UIImageView!
     
     var currentTab: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +81,7 @@ class TabBarViewController: UIViewController {
         searchButton.selected = false
         accountButton.selected = false
         trendButton.selected = false
+        composeButton.selected = false
         
         button.selected = true
         
@@ -100,8 +104,7 @@ class TabBarViewController: UIViewController {
             
         } else if button.tag == 2 {
             
-            composeViewController.view.frame = contentView.frame
-            contentView.addSubview(composeViewController.view)
+            performSegueWithIdentifier("composeSegue", sender: self)
             
             
         } else if button.tag == 3 {
@@ -123,20 +126,50 @@ class TabBarViewController: UIViewController {
             self.explorePopUp.hidden = true
 
         }
-
+        
 
         
     }
     
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        
+        var destinationVC = segue.destinationViewController as UIViewController
+        
+        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationVC.transitioningDelegate = self
     }
-    */
+    
+    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning!{
+        isPresenting = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext:
+        UIViewControllerContextTransitioning!) -> NSTimeInterval {
+            return 2
+    }
+
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning!) {
+        println("animating transition")
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        
+        containerView.addSubview(toViewController.view)
+        toViewController.view.alpha = 0
+        
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            toViewController.view.alpha = 1
+            }) { (finished: Bool) -> Void in
+                transitionContext.completeTransition(true)
+        }  
+    }
+    
+
     
 }
