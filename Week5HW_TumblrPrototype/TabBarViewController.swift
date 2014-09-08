@@ -10,6 +10,7 @@ import UIKit
 
 class TabBarViewController: UIViewController {
     
+    
     @IBOutlet weak var contentView: UIView!
     
     var homeViewController: UIViewController!
@@ -17,6 +18,9 @@ class TabBarViewController: UIViewController {
     var composeViewController: UIViewController!
     var accountViewController: UIViewController!
     var trendingViewController: UIViewController!
+    
+    @IBOutlet weak var homebutton: UIButton!
+    var currentTab: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,13 @@ class TabBarViewController: UIViewController {
         accountViewController = storyboard.instantiateViewControllerWithIdentifier("AccountViewController") as UIViewController
         
         trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
+        
+        
+        homeViewController.view.frame = contentView.frame
+        
+        contentView.addSubview(homeViewController.view)
+        currentTab = homebutton
+        homebutton.selected = true
         
         // Do any additional setup after loading the view.
     }
